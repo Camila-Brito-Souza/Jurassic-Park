@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Criador de nomes</title>
+        <link rel="stylesheet" href="criador.css">
+    </head>
+    <body>
+        <header>
+            <div class="cabecalho">
+            <img class="logo" src="jp_topoLogotipo.png" alt="Jurassic Park">
+            
+            <!-- Navegador-->
+            <nav>
+                <div class="navegador">
+               <a href="#filme"><p>FILMES |</p> </a>
+               <a href="#premio"> <p> PRÊMIOS |</p> </a><a href="formulario.html"> <p> LOGIN |</p></a></td>
+               <a href="novo_nome.html"><p> CRIADOR DE NOMES</p></a>
+                </div>
+
+            </nav>
+            </div>
+        </header>
+
+        <main>
+            
+            <div class="geral">
+                <div class="titulo_criador">
+                    <h1>CRIADOR DE NOMES DE DINOSSAUROS</h1>
+                </div>
+                <div class="div_formulario">
+                    <form id="formulario" onsubmit="event.preventDefault(); criar();">
+                        <label for="p_s_n">Informe a primeira silaba de seu nome</label>
+                        <input type="text" placeholder="Escreva" id="p_s_n" required><br><br>
+
+                        <label for="u_s_n">Informe a ultima silaba de seu nome</label>
+                        <input type="text" placeholder="Escreva" id="u_s_n" required><br><br>
+
+                        <label for="p_s_s">Informe a primeira silaba de seu sobrenome</label>
+                        <input type="text" placeholder="Escreva" id="p_s_s" required><br><br>
+
+                        <label for="u_s_s">Informe a ultima silaba de seu sobrenome</label>
+                        <input type="text" placeholder="Escreva" id="u_s_s" required><br><br>
+
+                        <button type="submit" onclick="criar()">Criar</button>
+                    </form>
+                </div>
+
+                <div class="div_resposta">
+                    <p id="resposta"></p>
+                </div>
+            </div>
+        </main>
+
+        <script>
+            function criar() {
+                var p_s_n = String(document.getElementById("p_s_n").value)
+                var u_s_n = String(document.getElementById("u_s_n").value)
+                var p_s_s = String(document.getElementById("p_s_s").value)
+                var u_s_s = String(document.getElementById("u_s_s").value)
+                
+                var novo_nome = p_s_n + u_s_n + p_s_s + u_s_s + "sauro"
+
+                novo_nome_oficial = editando(novo_nome)
+
+                document.getElementById("resposta").textContent = `O novo nome é ${novo_nome_oficial}`
+
+                document.getElementsByTagName("input").value = ""
+        
+            }
+
+            function editando(palavra){
+                return palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase()
+            }
+
+        </script>
+    </body>
+</html>
