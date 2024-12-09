@@ -57,13 +57,22 @@
                 var p_s_s = String(document.getElementById("p_s_s").value)
                 var u_s_s = String(document.getElementById("u_s_s").value)
                 
+               var lista = [p_s_n, u_s_n, p_s_s, u_s_s]
+
                 var novo_nome = p_s_n + u_s_n + p_s_s + u_s_s + "sauro"
 
-                novo_nome_oficial = editando(novo_nome)
+                if(lista.indexOf("") === -1){
+                
+                    novo_nome_oficial = editando(novo_nome)
 
-                document.getElementById("resposta").textContent = `O novo nome é ${novo_nome_oficial}`
+                    document.getElementById("resposta").textContent = `O novo nome é ${novo_nome_oficial}`
 
-                document.getElementsByTagName("input").value = ""
+                    document.getElementsByTagName("input").value = ""
+                }
+
+                else{
+                     document.getElementById("resposta").textContent = `Falta algum campo!`
+                }
         
             }
 
